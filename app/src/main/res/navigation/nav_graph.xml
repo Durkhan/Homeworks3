@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/NotesFragment">
+    <fragment
+        android:id="@+id/NotesFragment"
+        android:name="com.notesapp.homework3.fragments.NotesFragment"
+        android:label="@string/notes_fragment_label"
+        tools:layout="@layout/list_of_notes">
+
+        <action
+            android:id="@+id/action_NotesFragment_to_ViewNotesFragment"
+            app:destination="@id/ViewNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ViewNotesFragment"
+        android:name="com.notesapp.homework3.fragments.NotesViewFragment"
+        android:label="@string/view_notes_fragment_label"
+        tools:layout="@layout/view_notes">
+
+
+        <action
+            android:id="@+id/action_ViewNotesFragment_to_NotesFragment"
+            app:destination="@id/NotesFragment" />
+        <argument
+            android:name="note"
+            app:argType="com.notesapp.homework3.model.Notes"
+            app:nullable="true"
+            />
+    </fragment>
+</navigation>
